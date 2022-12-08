@@ -4,6 +4,11 @@ pipeline {
         maven 'maven 3.8.6'
     }
     stages {
+        stage ('git') {
+            steps {
+                git 'https://github.com/narendralucky333/-jenkins-maven-project.git'
+            }
+        }       
         stage('Build') {
             steps {
                 sh 'mvn -f hello-app/pom.xml -B -DskipTests clean package'
